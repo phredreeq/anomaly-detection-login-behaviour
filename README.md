@@ -154,4 +154,5 @@ In a real SOC environment this model would:
 
 ## 👤 Author
 Fredrick Agufenwa
+
 Cybersecurity Student | SOC & Threat Detection

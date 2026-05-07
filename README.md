@@ -82,11 +82,31 @@ Key principle:
 
 
 
+### Dataset Preview
+
+
+![Dataset Preview](screenshots/dataset_preview.png)
+
+
+
+### Dataset Generator Script
+
+
+![Create Dataset Script](screenshots/script_create_dataset.png)
+
+
+
+### Anomaly Detection Script
+
+
+![Anomaly Detection Script](screenshots/script_anomaly_detection.png)
+
+
+
 ### Command Prompt Results
 
 
 ![Detection Results](screenshots/anomaly_results.png)
-
 
 
 ---

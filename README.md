@@ -1,9 +1,9 @@
-# 🤖 Anomaly Detection for Suspicious Login Behaviour
+# Anomaly Detection for Suspicious Login Behaviour
 ## Using Isolation Forest Algorithm in Machine Learning
 
 ---
 
-## 📌 Problem
+## Problem
 Traditional rule-based detection requires knowing 
 what an attack looks like in advance. This project 
 uses Machine Learning to detect suspicious login 
@@ -13,7 +13,7 @@ an attack is.
 
 ---
 
-## 🎯 Objectives
+## Objectives
 - Generate a realistic login behaviour dataset
 - Train an Isolation Forest model on normal behaviour
 - Automatically flag anomalous login activity
@@ -21,7 +21,7 @@ an attack is.
 
 ---
 
-## 🛠️ Tools Used
+## Tools Used
 | Tool | Purpose |
 |---|---|
 | **Python** | Core programming language |
@@ -31,7 +31,7 @@ an attack is.
 
 ---
 
-## 📊 Dataset
+## Dataset
 Synthetic login dataset with 100 records across 
 three behaviour categories:
 
@@ -49,7 +49,7 @@ three behaviour categories:
 
 ---
 
-## 🤖 Model — Isolation Forest
+## Model — Isolation Forest
 
 Isolation Forest detects anomalies by isolating 
 data points that are different from the majority. This means that the algorithm finds outliers by isolating unusual data points.
@@ -67,7 +67,7 @@ Key principle:
 
 ---
 
-## 📸 Results
+## Results
 
 ### Detection Summary
 | Label | Count |
@@ -111,7 +111,7 @@ Key principle:
 
 ---
 
-## 🧠 Analysis
+## Analysis
 
 ### What the Model Detected
 The Isolation Forest model successfully flagged 10 
@@ -152,7 +152,7 @@ decision.
 
 ---
 
-## ✅ Conclusion
+## Conclusion
 The Isolation Forest model successfully detected 
 suspicious login behaviour without being explicitly 
 told what an attack looks like. It learned normal 

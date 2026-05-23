@@ -122,7 +122,7 @@ pip install matplotlib
 
 
 
-![Architecture Diagram](architecture_diagram.jpeg)
+![Architecture Diagram](screenshots/architecture_diagram.jpeg)
 
 
 

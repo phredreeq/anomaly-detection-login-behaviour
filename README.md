@@ -5,19 +5,16 @@
 
 ## 🎯 What This Project Is About
 
-Traditional rule-based detection like Splunk requires
-you to know what an attack looks like in advance.
+Traditional rule-based detection like Splunk requires you to know what an attack looks like in advance.
 
-This project uses a different approach — Machine
-Learning. Instead of defining attack rules, we teach
-a model what NORMAL looks like. The model then
-automatically flags anything that doesn't fit.
+This project uses a different approach - Machine Learning. Instead of defining attack rules, we teach a model what NORMAL looks like. The model then automatically flags anything that doesn't fit.
 
-This is called anomaly detection and it is one of
-the most powerful techniques in modern SOC work.
+This is called anomaly detection and it is one of the most powerful techniques in modern SOC work.
 
 Attack type: Suspicious Authentication Behaviour
+
 Detection method: Isolation Forest — Unsupervised ML
+
 Tools: Python, Pandas, Scikit-learn, Matplotlib
 
 ---
@@ -26,21 +23,18 @@ Tools: Python, Pandas, Scikit-learn, Matplotlib
 
 ### Rule-Based Detection vs Machine Learning
 
-Rule-based detection — Splunk approach:
+Rule-based detection - Splunk approach:
 You write: if failures > 5 then flag it
 Problem: attacker just tries 4 times and avoids detection
 
-Machine learning detection — this project:
-You show the model 100 normal logins
-Model learns what normal looks like
+Machine learning detection - this project:
+You show the model 100 normal logins,
+Model learns what normal looks like,
 Model automatically flags anything unusual
-Problem: attacker cannot simply avoid a rule
-they do not know exists
 
 ### What is Isolation Forest?
 
-Isolation Forest detects anomalies by trying to
-isolate individual data points from the dataset.
+Isolation Forest detects anomalies by trying to isolate individual data points from the dataset.
 
 Normal data points are hard to isolate:
 They are surrounded by similar data points
@@ -50,18 +44,14 @@ Anomalous data points are easy to isolate:
 They stand out from the rest
 Few splits needed to separate them
 
-The easier a point is to isolate — the more
-suspicious it is flagged by the model.
+The easier a point is to isolate the more suspicious it is flagged by the model.
 
 Think of it like a crowd:
-Finding a normal person in a crowd is hard
-Finding someone in a bright red clown suit is easy
-Isolation Forest finds the clown suit.
+Finding a normal person in a crowd is hard, but finding someone in a bright red clown suit is easy. Isolation Forest finds the clown suit.
 
 ### The Four Features Used for Detection
 
-The model evaluates four features simultaneously
-for every login record:
+The model evaluates four features simultaneously for every login record:
 
 | Feature | What it measures | Why it matters |
 |---|---|---|
@@ -72,20 +62,14 @@ for every login record:
 
 ### Why Four Features Together?
 
-This is called multivariate analysis — the model
-considers all four features at the same time not
-just one.
+This is called multivariate analysis; the model considers all four features at the same time not just one.
 
 Example:
-A login at 2AM with 30 failures from unknown IP
-= very suspicious — multiple features abnormal
+A login at 2AM with 30 failures from unknown IP = very suspicious -multiple features abnormal
 
-A login at 2AM from known IP with 0 failures
-= possibly legitimate — only one feature abnormal
+A login at 2AM from known IP with 0 failures = possibly legitimate - only one feature abnormal
 
-This is why some normal dots appear high on the
-chart — high failures alone does not confirm an
-attack if other features look normal.
+This is why some normal dots appear high on the chart, because high failures alone does not confirm an attack if other features look normal.
 
 ---
 
@@ -96,18 +80,15 @@ attack if other features look normal.
 | Tactic | Credential Access (TA0006) |
 | Technique | Brute Force (T1110) |
 | Sub-technique | Password Guessing (T1110.001) |
-| Detection approach | Anomaly based — behavioural |
+| Detection approach | Anomaly based - behavioural |
 | Reference | attack.mitre.org/techniques/T1110 |
 
 ### What This Means
 
-Unlike rule-based detection which targets specific
-known patterns, this ML approach detects behavioural
-anomalies — any login behaviour that deviates
+Unlike rule-based detection which targets specific known patterns, this ML approach detects behavioural anomalies, that's any login behaviour that deviates
 significantly from the established normal baseline.
 
-This means it can detect new attack variations that
-rule-based systems would miss entirely.
+This means it can detect new attack variations that rule-based systems would miss entirely.
 
 ---
 
@@ -137,7 +118,7 @@ pip install matplotlib
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 
 
@@ -146,8 +127,7 @@ pip install matplotlib
 
 
 ### How It Works
-1. Python generates synthetic login dataset with
-   three behaviour categories
+1. Python generates synthetic login dataset with three behaviour categories
 2. Isolation Forest model trains on the full dataset
 3. Model scores every record and flags anomalies
 4. Matplotlib visualizes results as scatter plot
@@ -406,25 +386,17 @@ and high failed attempts
 
 
 What to look for:
-Blue dots clustered at hours 8-18 near bottom
-= normal business hours logins with few failures
+Blue dots clustered at hours 8-18 near bottom = normal business hours logins with few failures
 
-Red dots at top left near hours 0-4
-= off-hours logins with 20-35 failures
-= confirmed attack patterns
+Red dots at top left near hours 0-4 = off-hours logins with 20-35 failures = confirmed attack patterns
 
-Some blue dots may appear high up — this is
-expected because the model uses multivariate
-analysis considering all 4 features together
-not just failed attempts alone.
+Some blue dots may appear high up, this is expected because the model uses multivariate analysis considering all 4 features together not just failed attempts alone.
 
 ---
 
-## 🔍 Indicators of Compromise (IOCs)
+## Indicators of Compromise (IOCs)
 
-IOCs are evidence that suspicious activity
-has occurred. These IOCs were identified by
-the Isolation Forest model:
+IOCs are evidence that suspicious activity has occurred. These IOCs were identified by the Isolation Forest model:
 
 | IOC | Threshold | Significance |
 |---|---|---|
@@ -441,11 +413,7 @@ the Isolation Forest model:
 | 3+ IOCs | High — respond | Immediate response needed |
 
 ### Advantage Over Rule-Based Detection
-Rule-based systems check one condition at a time.
-This ML model evaluates all IOCs simultaneously
-and weights them together — making it much harder
-for attackers to evade detection by adjusting
-just one behaviour.
+Rule-based systems check one condition at a time. This ML model evaluates all IOCs simultaneously and weights them together, making it much harder for attackers to evade detection by adjusting just one behaviour.
 
 ---
 
@@ -454,23 +422,19 @@ just one behaviour.
 ### What the Model Did
 
 Step 1 — Studied 100 login records
-Step 2 — Learned what normal looks like:
-         Business hours, few failures, known IP
-Step 3 — Scored every record by how different
-         it is from normal
+Step 2 — Learned what normal looks like: Business hours, few failures, known IP
+Step 3 — Scored every record by how different it is from normal
 Step 4 — Flagged the 10 most anomalous records
 
 ### What the Results Mean
 
 The 10 suspicious records show:
-- Login hours between 0 and 4 — off hours
+- Login hours between 0 and 4; off hours
 - Failed attempts between 20 and 35
 - Unknown IP addresses
 - Eventually successful logins
 
-This pattern is consistent with automated
-brute force attack tools operating at night
-to avoid detection by security teams.
+This pattern is consistent with automated brute force attack tools operating at night to avoid detection by security teams.
 
 ### What a SOC Analyst Does Next
 
@@ -482,10 +446,7 @@ After the model flags suspicious logins:
 5. Enable MFA to prevent future attacks
 6. Document findings in incident report
 
-The model narrows 100 records down to 10
-suspicious ones — analyst reviews just 10
-instead of 100. This is how ML reduces
-analyst workload in real SOC environments.
+The model narrows 100 records down to 10 suspicious ones; analyst reviews just 10instead of 100. This is how ML reduces analyst workload in real SOC environments.
 
 ### Limitations of This Approach
 
@@ -495,7 +456,7 @@ analyst workload in real SOC environments.
 | False negatives | Slow attacks may not be flagged |
 | Synthetic data | Real data requires model retuning |
 | contamination value | Must be tuned per environment |
-| Human review required | ML flags candidates — analyst decides |
+| Human review required | ML flags candidates; analyst decides |
 
 ---
 

@@ -24,7 +24,7 @@ Tools: Python, Pandas, Scikit-learn, Matplotlib
 ### Rule-Based Detection vs Machine Learning
 
 Rule-based detection - Splunk approach:
-You write: if failures > 5 then flag it
+You write: if failures > 5 then flag it.
 Problem: attacker just tries 4 times and avoids detection
 
 Machine learning detection - this project:

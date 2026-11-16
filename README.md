@@ -38,11 +38,11 @@ Model automatically flags anything unusual
 Isolation Forest detects anomalies by trying to isolate individual data points from the dataset.
 
 Normal data points are hard to isolate:
-They are surrounded by similar data points
+They are surrounded by similar data points.
 Many splits needed to separate them
 
 Anomalous data points are easy to isolate:
-They stand out from the rest
+They stand out from the rest.
 Few splits needed to separate them
 
 The easier a point is to isolate the more suspicious it is flagged by the model.

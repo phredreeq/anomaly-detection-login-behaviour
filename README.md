@@ -108,8 +108,11 @@ Windows 10 or later (tested on Windows 10 VM)
 
 ### Install Required Libraries
 Open Command Prompt and run:
+
 pip install pandas
+
 pip install scikit-learn
+
 pip install matplotlib
 
 ### Required Knowledge

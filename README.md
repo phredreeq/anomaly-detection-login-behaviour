@@ -25,7 +25,8 @@ Tools: Python, Pandas, Scikit-learn, Matplotlib
 
 Rule-based detection - Splunk approach:
 You write: if failures > 5 then flag it.
-Problem: attacker just tries 4 times and avoids detection
+
+Problem: the attacker might just try 4 times and avoids detection
 
 Machine learning detection - this project:
 You show the model 100 normal logins,

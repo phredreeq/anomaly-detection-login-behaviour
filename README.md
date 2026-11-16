@@ -157,19 +157,27 @@ pip install matplotlib
 ### Step 1 — Install Python and Libraries
 
 Download Python from python.org/downloads
+
 During installation check: Add Python to PATH
 
 Verify Python installation:
+
 python --version
+
 Expected output: Python 3.14.x
 
 Install required libraries:
+
 pip install pandas
+
 pip install scikit-learn
+
 pip install matplotlib
 
 Verify installations:
+
 pip show pandas scikit-learn matplotlib
+
 Expected: version numbers displayed for each
 
 ---
